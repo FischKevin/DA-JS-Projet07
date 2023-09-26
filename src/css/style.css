@@ -96,6 +96,7 @@ main .listBoxesAndRecipesNumber .dropdown {
   border-radius: 17px;
   margin: 20px 30px 20px 0px;
   font-family: var(--secondary-font-family);
+  height: fit-content;
 }
 
 main .listBoxesAndRecipesNumber .dropdownTitle {
@@ -123,19 +124,20 @@ main .listBoxesAndRecipesNumber .dropdownTitle:after {
 main .listBoxesAndRecipesNumber .dropdownContent {
   display: none;
   position: relative;
-  background-color: #f9f9f9;
   min-width: 160px;
   z-index: 1;
   background-color: white;
   border-radius: 17px;
 }
 
-main .listBoxesAndRecipesNumber .dropdown:hover .dropdownContent {
+main .listBoxesAndRecipesNumber .dropdown:hover > .dropdownContent {
   display: block;
   position: relative;
 }
 
-main .listBoxesAndRecipesNumber #dropdownSearch {
+main .listBoxesAndRecipesNumber #dropdownSearchIngredients,
+main .listBoxesAndRecipesNumber #dropdownSearchAppareils,
+main .listBoxesAndRecipesNumber #dropdownSearchUstensiles {
   margin: 0px 15px;
   width: 122px;
   height: 36px;
