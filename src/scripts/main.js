@@ -1,5 +1,15 @@
 import { recipes } from './recipes.js';
+import {
+  getApparelsOptions,
+  getIngredientsOptions,
+  getUstensilsOptions,
+} from './getFilterItems.js';
 import { recipesFactory } from './factories/recipeFactory.js';
+
+// Execute function to get filter items in dropdown lists
+getIngredientsOptions();
+getApparelsOptions();
+getUstensilsOptions();
 
 // Display recipes number
 // Select .recipesNumber element
