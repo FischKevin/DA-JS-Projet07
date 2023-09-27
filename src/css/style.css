@@ -194,7 +194,7 @@ main .recipeSection .recipe {
   border-radius: 5px;
   box-shadow: 1px 1px 1px 0px rgba(0, 0, 0, 0.1);
   font-family: var(--secondary-font-family);
-  height: 731px;
+  height: 645px;
   width: 380px;
   background-color: white;
   overflow: hidden;
