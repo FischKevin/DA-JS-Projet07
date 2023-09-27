@@ -178,6 +178,8 @@ main .recipesNumber {
   font-size: 21px;
   font-weight: 400;
   margin-top: 45px;
+  left: 390px;
+  position: relative;
 }
 
 main .recipeSection {
