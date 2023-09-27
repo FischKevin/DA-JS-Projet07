@@ -195,6 +195,7 @@ main .recipeSection {
   align-items: center;
   top: 140px;
   position: relative;
+  row-gap: 50px;
 }
 
 main .recipeSection .recipe {
