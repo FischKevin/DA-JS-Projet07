@@ -1,8 +1,9 @@
 * {
   --primary-color: #ffd15b;
   --secondary-color: #1b1b1b;
-  --tertiary-color: #EDEDED;
-  --light-grey: #C6C6C6;
+  --tertiary-color: #ededed;
+  --light-grey: #c6c6c6;
+  --dark-grey: #7a7a7a;
 
   --primary-font-family: Anton, Arial, Sans-serif;
   --secondary-font-family: Manrope, Arial, Sans-serif;
@@ -174,4 +175,116 @@ main .recipesNumber {
   font-size: 21px;
   font-weight: 400;
   margin-top: 45px;
+}
+
+main .recipeSection {
+  margin-left: auto;
+  margin-right: auto;
+  width: 90%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  column-gap: 70px;
+  row-gap: 10px;
+  padding-bottom: 60px;
+  justify-items: center;
+  align-items: center;
+}
+
+main .recipeSection .recipe {
+  border-radius: 5px;
+  box-shadow: 1px 1px 1px 0px rgba(0, 0, 0, 0.1);
+  font-family: var(--secondary-font-family);
+  height: 731px;
+  width: 380px;
+  background-color: white;
+  overflow: hidden;
+}
+
+main .recipe img {
+  width: 100%;
+  height: 253px;
+  border-radius: 5px 5px 0 0;
+  object-fit: cover;
+  margin-bottom: -20px;
+}
+
+main .recipe .recipeDuration {
+  font-size: 12px;
+  font-weight: 400;
+  position: relative;
+  background-color: var(--primary-color);
+  bottom: 220px;
+  left: 300px;
+  height: 23px;
+  width: 65px;
+  border-radius: 14px;
+  display: block;
+  text-align: center;
+  padding-top: 5px;
+}
+
+main .recipe .recipeName {
+  font-family: var(--primary-font-family);
+  font-size: 18px;
+  font-weight: 400;
+  margin-top: 0;
+  padding-left: 15px;
+}
+
+main .recipeSection .recipe h3 {
+  font-family: var(--secondary-font-family);
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--dark-grey);
+  margin-bottom: 10px;
+}
+
+main .recipe .recipeDescription {
+  font-family: var(--secondary-font-family);
+  font-size: 14px;
+  font-weight: 400;
+  padding: 0 15px 3px 15px;
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  max-height: 106px;
+  line-height: 1.2em;
+  margin-bottom: 0px;
+}
+
+main .recipe .recipeIngredients {
+  font-family: var(--secondary-font-family);
+  font-size: 14px;
+  font-weight: 400;
+  padding-left: 15px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+main .recipe .recipeIngredients h3 {
+  margin-bottom: -3px;
+}
+
+main .recipe .recipeIngredients .recipeIngredientsItems {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 5px;
+}
+
+main .recipe .recipeIngredients .recipeIngredientsName {
+  font-family: var(--secondary-font-family);
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: -5px;
+  margin-top: -5px;
+}
+
+main .recipe .recipeIngredients .recipeIngredientsQuantity {
+  font-family: var(--secondary-font-family);
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--dark-grey);
 }
