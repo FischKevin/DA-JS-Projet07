@@ -80,6 +80,7 @@ main .listBoxesAndRecipesNumber {
   margin-left: 70px;
   margin-right: 70px;
   gap: 20px;
+  position: absolute;
 }
 
 main .listBoxesAndRecipesNumber .listBoxes {
@@ -133,6 +134,7 @@ main .listBoxesAndRecipesNumber .dropdownContent {
 main .listBoxesAndRecipesNumber .dropdown:hover > .dropdownContent {
   display: block;
   position: relative;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
 }
 
 main .listBoxesAndRecipesNumber #dropdownSearchIngredients,
@@ -155,7 +157,8 @@ main .listBoxesAndRecipesNumber .fa-magnifying-glass {
 }
 
 main .listBoxesAndRecipesNumber .dropdownContent ul {
-  padding: 0px;
+  padding: 0px 0 15px 0;
+  margin-bottom: 0px;
 }
 
 main .listBoxesAndRecipesNumber .dropdownContent li {
@@ -188,6 +191,8 @@ main .recipeSection {
   padding-bottom: 60px;
   justify-items: center;
   align-items: center;
+  top: 140px;
+  position: relative;
 }
 
 main .recipeSection .recipe {
