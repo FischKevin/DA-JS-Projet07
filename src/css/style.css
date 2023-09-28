@@ -161,7 +161,7 @@ main .listBoxesAndRecipesNumber .dropdownContent ul {
   margin-bottom: 0px;
   display: flex;
   flex-wrap: wrap;
-  height: 60vh;
+  max-height: 60vh;
   width: 767px;
   background-color: white;
   overflow-y: auto;
