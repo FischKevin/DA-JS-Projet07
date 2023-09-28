@@ -159,6 +159,13 @@ main .listBoxesAndRecipesNumber .fa-magnifying-glass {
 main .listBoxesAndRecipesNumber .dropdownContent ul {
   padding: 0px 0 15px 0;
   margin-bottom: 0px;
+  display: flex;
+  flex-wrap: wrap;
+  height: 60vh;
+  width: 767px;
+  background-color: white;
+  overflow-y: auto;
+  box-shadow: 0px 10px 16px -6px rgba(0, 0, 0, 0.2);
 }
 
 main .listBoxesAndRecipesNumber .dropdownContent li {
@@ -168,6 +175,8 @@ main .listBoxesAndRecipesNumber .dropdownContent li {
   text-align: left;
   font-size: 14px;
   font-weight: 400;
+  width: 25%;
+  box-sizing: border-box;
 }
 
 main .listBoxesAndRecipesNumber .dropdownContent li:hover {
