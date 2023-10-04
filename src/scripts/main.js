@@ -1,10 +1,11 @@
 import { recipes } from './recipes.js';
+import { recipesFactory } from './factories/recipeFactory.js';
+import { addTag } from './handleTags.js';
 import {
   getApparelsOptions,
   getIngredientsOptions,
   getUstensilsOptions,
 } from './getFilterItems.js';
-import { recipesFactory } from './factories/recipeFactory.js';
 
 // Execute function to get filter items in dropdown lists
 getIngredientsOptions();
