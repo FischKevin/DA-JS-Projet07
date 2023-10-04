@@ -4,7 +4,7 @@
   "description": "Project 7 from JavaScript React developper path at OpenClassrooms",
   "main": "index.js",
   "scripts": {
-    "lint": "eslint './**/*.{js,css,html}'",
+    "lint": "eslint src/**/*.js",
     "format": "prettier --write './**/*.{js,css,html}'"
 },
   "repository": {
