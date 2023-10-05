@@ -11,14 +11,11 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 export function addTag(content) {
-  console.log('addTag is called with content:', content); // Log 1
   if (addedTags.has(content)) {
-    console.log('Tag already added:', content); // Log 2
     return;
   }
 
   const tagsContainer = document.querySelector('.addedTags');
-  console.log('tagsContainer:', tagsContainer); // Log 3
   const newTag = document.createElement('div');
   newTag.className = 'tag';
   newTag.textContent = content;
@@ -28,7 +25,6 @@ export function addTag(content) {
     newTag.remove();
     addedTags.delete(content);
   });
-  console.log('Appending new tag:', newTag); // Log 4
   tagsContainer.appendChild(newTag);
 }
 
