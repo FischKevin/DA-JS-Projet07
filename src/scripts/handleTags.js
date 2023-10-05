@@ -35,3 +35,19 @@ export function addTag(content) {
 
   tagsContainer.appendChild(newTag);
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+  const searchInput = document.getElementById('dropdownSearchIngredients');
+  const ingredientsList = document.getElementById('ingredientsList');
+
+  searchInput.addEventListener('input', () => {
+    const query = searchInput.value.trim().toLowerCase();
+
+    Array.from(ingredientsList.children).forEach((li) => {
+      const ingredient = li.textContent.trim().toLowerCase();
+      const isVisible = ingredient.includes(query);
+
+      li.style.display = isVisible ? '' : 'none';
+    });
+  });
+});

@@ -52,12 +52,12 @@ function updateListOptions(matchedRecipes) {
 
   matchedRecipes.forEach((recipe) => {
     recipe.ingredients.forEach((ingredient) => {
-      ingredientsSet.add(ingredient.ingredient);
+      ingredientsSet.add(ingredient.ingredient.toLowerCase());
     });
     recipe.ustensils.forEach((ustensiles) => {
-      ustensilesSet.add(ustensiles);
+      ustensilesSet.add(ustensiles.toLowerCase());
     });
-    appareilsSet.add(recipe.appliance);
+    appareilsSet.add(recipe.appliance.toLowerCase());
   });
 
   updateListElement(document.getElementById('ingredientsList'), ingredientsSet);

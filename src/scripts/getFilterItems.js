@@ -19,7 +19,7 @@ export function getIngredientsOptions() {
   let ingredientsSet = new Set();
   recipes.forEach((recipe) => {
     recipe.ingredients.forEach((ingredient) => {
-      ingredientsSet.add(ingredient.ingredient);
+      ingredientsSet.add(ingredient.ingredient.toLowerCase());
     });
   });
 
@@ -39,7 +39,7 @@ export function getApparelsOptions() {
   let appliancesSet = new Set();
 
   recipes.forEach((recipe) => {
-    appliancesSet.add(recipe.appliance);
+    appliancesSet.add(recipe.appliance.toLowerCase());
   });
 
   appliancesSet = new Set(
@@ -56,7 +56,7 @@ export function getUstensilsOptions() {
 
   recipes.forEach((recipe) => {
     recipe.ustensils.forEach((ustensil) => {
-      ustensilsSet.add(ustensil);
+      ustensilsSet.add(ustensil.toLowerCase());
     });
   });
 
