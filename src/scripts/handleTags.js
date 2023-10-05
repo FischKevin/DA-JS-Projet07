@@ -1,4 +1,3 @@
-// JavaScript
 document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('.dropdownContent ul li').forEach((item) => {
     item.addEventListener('click', () => {

@@ -1,6 +1,7 @@
 import { recipes } from './recipes.js';
 import { recipesFactory } from './factories/recipeFactory.js';
 import { addTag } from './handleTags.js';
+import { searchRecipes, updateRecipeSection } from './sort.js';
 import {
   getApparelsOptions,
   getIngredientsOptions,
