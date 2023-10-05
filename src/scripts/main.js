@@ -8,6 +8,9 @@ import {
   getUstensilsOptions,
 } from './getFilterItems.js';
 
+// Clear the search input field when the page loads
+document.getElementById('searchInput').value = '';
+
 // Execute function to get filter items in dropdown lists
 getIngredientsOptions();
 getApparelsOptions();
