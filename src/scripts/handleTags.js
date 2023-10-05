@@ -14,7 +14,6 @@ export function addTag(content) {
   if (addedTags.has(content)) {
     return;
   }
-
   const tagsContainer = document.querySelector('.addedTags');
   const newTag = document.createElement('div');
   newTag.className = 'tag';
@@ -29,17 +28,29 @@ export function addTag(content) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-  const searchInput = document.getElementById('dropdownSearchIngredients');
-  const ingredientsList = document.getElementById('ingredientsList');
+  setupDropdownFilter('dropdownSearchIngredients', 'ingredientsList');
+  setupDropdownFilter('dropdownSearchUstensiles', 'ustensilesList');
+  setupDropdownFilter('dropdownSearchAppareils', 'appareilsList');
+});
+
+/**
+ * Set up a filter functionality for a dropdown.
+ *
+ * @param {string} inputId - The ID of the input element.
+ * @param {string} listId - The ID of the ul list element.
+ */
+function setupDropdownFilter(inputId, listId) {
+  const searchInput = document.getElementById(inputId);
+  const itemList = document.getElementById(listId);
 
   searchInput.addEventListener('input', () => {
     const query = searchInput.value.trim().toLowerCase();
 
-    Array.from(ingredientsList.children).forEach((li) => {
-      const ingredient = li.textContent.trim().toLowerCase();
-      const isVisible = ingredient.includes(query);
+    Array.from(itemList.children).forEach((li) => {
+      const itemText = li.textContent.trim().toLowerCase();
+      const isVisible = itemText.includes(query);
 
       li.style.display = isVisible ? '' : 'none';
     });
   });
-});
+}
