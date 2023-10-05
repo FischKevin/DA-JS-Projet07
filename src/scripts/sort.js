@@ -16,6 +16,11 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
+function updateRecipeCount(matchedRecipes) {
+  const recipesNumberDiv = document.querySelector('.recipesNumber');
+  recipesNumberDiv.textContent = `${matchedRecipes.length} recettes`;
+}
+
 export function searchRecipes(query) {
   return recipes.filter((recipe) => {
     const { name, ingredients, description } = recipe;
@@ -35,4 +40,5 @@ export function updateRecipeSection(matchedRecipes) {
     const recipeCard = recipesFactory(recipe);
     recipeSection.appendChild(recipeCard);
   });
+  updateRecipeCount(matchedRecipes);
 }
