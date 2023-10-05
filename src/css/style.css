@@ -158,7 +158,7 @@ main .listBoxesAndRecipesNumber .fa-magnifying-glass {
 }
 
 main .listBoxesAndRecipesNumber .dropdownContent ul {
-  padding: 0px 0 15px 0;
+  padding: 15px 0 15px 0;
   margin-bottom: 0px;
   display: flex;
   flex-wrap: wrap;
