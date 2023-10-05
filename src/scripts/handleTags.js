@@ -1,15 +1,24 @@
-// import { recipes } from './recipes.js';
-// import { updateRecipeSection } from './sort.js';
-
 const addedTags = new Set();
-// let selectedTags = new Set();
+
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('.dropdownContent ul li').forEach((item) => {
+    item.addEventListener('click', () => {
+      if (!item.classList.contains('selected')) {
+        addTag(item.textContent);
+      }
+    });
+  });
+});
 
 export function addTag(content) {
+  console.log('addTag is called with content:', content); // Log 1
   if (addedTags.has(content)) {
+    console.log('Tag already added:', content); // Log 2
     return;
   }
 
   const tagsContainer = document.querySelector('.addedTags');
+  console.log('tagsContainer:', tagsContainer); // Log 3
   const newTag = document.createElement('div');
   newTag.className = 'tag';
   newTag.textContent = content;
@@ -18,14 +27,8 @@ export function addTag(content) {
   newTag.addEventListener('click', () => {
     newTag.remove();
     addedTags.delete(content);
-
-    document.querySelectorAll('.dropdownContent ul li').forEach((item) => {
-      if (item.textContent === content) {
-        item.classList.remove('selected');
-      }
-    });
   });
-
+  console.log('Appending new tag:', newTag); // Log 4
   tagsContainer.appendChild(newTag);
 }
 
