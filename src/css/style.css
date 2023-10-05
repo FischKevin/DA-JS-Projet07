@@ -185,12 +185,6 @@ main .listBoxesAndRecipesNumber .dropdownContent li:hover {
   background-color: var(--primary-color);
 }
 
-main .listBoxesAndRecipesNumber .dropdownContent li.selected {
-  color: grey;
-  pointer-events: none;
-  cursor: not-allowed;
-}
-
 main .recipesNumber {
   font-size: 21px;
   font-weight: 400;

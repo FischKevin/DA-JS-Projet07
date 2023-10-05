@@ -1,15 +1,8 @@
-document.addEventListener('DOMContentLoaded', () => {
-  document.querySelectorAll('.dropdownContent ul li').forEach((item) => {
-    item.addEventListener('click', () => {
-      if (!item.classList.contains('selected')) {
-        addTag(item.textContent);
-        item.classList.add('selected');
-      }
-    });
-  });
-});
+// import { recipes } from './recipes.js';
+// import { updateRecipeSection } from './sort.js';
 
 const addedTags = new Set();
+// let selectedTags = new Set();
 
 export function addTag(content) {
   if (addedTags.has(content)) {
