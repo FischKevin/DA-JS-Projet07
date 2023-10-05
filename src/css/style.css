@@ -72,6 +72,7 @@ main {
   background: var(--tertiary-color);
   width: 100%;
   height: 100%;
+  padding-bottom: 140px;
 }
 
 main .listBoxesAndRecipesNumber {
