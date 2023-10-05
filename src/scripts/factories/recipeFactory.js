@@ -19,7 +19,7 @@ export function recipesFactory(data) {
 
   // Add an image
   const recipeImg = document.createElement('img');
-  recipeImg.src = `/assets/recipes/${image}`;
+  recipeImg.src = `assets/recipes/${image}`;
   recipeDiv.appendChild(recipeImg);
 
   // Add recipe duration
