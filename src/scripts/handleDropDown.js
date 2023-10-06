@@ -22,7 +22,6 @@ export function updateListOptions(matchedRecipes) {
 
 export function updateListElement(listElement, itemsSet) {
   if (!listElement) {
-    console.error('List element not found!');
     return;
   }
 

@@ -1,10 +1,11 @@
 const addedTags = new Set();
 
 document.addEventListener('DOMContentLoaded', () => {
-  document.querySelectorAll('.dropdownContent ul li').forEach((item) => {
-    item.addEventListener('click', () => {
-      if (!item.classList.contains('selected')) {
-        addTag(item.textContent);
+  document.querySelectorAll('.dropdownContent ul').forEach((ul) => {
+    ul.addEventListener('click', (event) => {
+      const li = event.target;
+      if (li.tagName === 'LI' && !li.classList.contains('selected')) {
+        addTag(li.textContent);
       }
     });
   });

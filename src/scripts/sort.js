@@ -19,24 +19,38 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 export function searchRecipes(query) {
-  return recipes.filter((recipe) => {
-    const { name, ingredients, description } = recipe;
-    return (
+  const matchedRecipes = [];
+  for (let i = 0; i < recipes.length; i++) {
+    const { name, ingredients, description } = recipes[i];
+    if (
       name.toLowerCase().includes(query) ||
-      ingredients.some((ing) => ing.ingredient.toLowerCase().includes(query)) ||
+      ingredientContainsQuery(ingredients, query) ||
       description.toLowerCase().includes(query)
-    );
-  });
+    ) {
+      matchedRecipes.push(recipes[i]);
+    }
+  }
+  return matchedRecipes;
+}
+
+function ingredientContainsQuery(ingredients, query) {
+  for (let i = 0; i < ingredients.length; i++) {
+    if (ingredients[i].ingredient.toLowerCase().includes(query)) {
+      return true;
+    }
+  }
+  return false;
 }
 
 export function updateRecipeSection(matchedRecipes) {
   const recipeSection = document.querySelector('.recipeSection');
   recipeSection.innerHTML = '';
 
-  matchedRecipes.forEach((recipe) => {
-    const recipeCard = recipesFactory(recipe);
+  for (let i = 0; i < matchedRecipes.length; i++) {
+    const recipeCard = recipesFactory(matchedRecipes[i]);
     recipeSection.appendChild(recipeCard);
-  });
+  }
+
   updateRecipeCount(matchedRecipes);
   updateListOptions(matchedRecipes);
 }
