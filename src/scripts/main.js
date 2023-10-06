@@ -2,32 +2,43 @@ import { recipes } from './recipes.js';
 import { recipesFactory } from './factories/recipeFactory.js';
 import { addTag } from './handleTags.js';
 import { searchRecipes, updateRecipeSection } from './sort.js';
+import { updateRecipeCount, clearSearchFields } from './utils.js';
 import {
   getApparelsOptions,
   getIngredientsOptions,
   getUstensilsOptions,
 } from './getFilterItems.js';
 
-// Clear the search input field when the page loads
-document.getElementById('searchInput').value = '';
+// Initializes the page with default settings and loads content.
+document.addEventListener('DOMContentLoaded', () => {
+  initializePage();
+});
 
-// Execute function to get filter items in dropdown lists
-getIngredientsOptions();
-getApparelsOptions();
-getUstensilsOptions();
+// Initializes the page with default settings and loads content.
+function initializePage() {
+  clearInitialSearchFields();
+  populateDropdownOptions();
+  displayInitialRecipeCount();
+}
 
-// Display recipes number
-// Select .recipesNumber element
-const recipesNumberElement = document.querySelector('.recipesNumber');
+// Clears search input fields when the page loads.
+function clearInitialSearchFields() {
+  document.getElementById('searchInput').value = '';
+  clearSearchFields([
+    'dropdownSearchIngredients',
+    'dropdownSearchUstensiles',
+    'dropdownSearchAppareils',
+  ]);
+}
 
-// Select all .recipe elements in .recipeSection
-const allRecipes = document.querySelectorAll('.recipeSection .recipe');
+// Gets filter items and populates the dropdown lists.
+function populateDropdownOptions() {
+  getIngredientsOptions();
+  getApparelsOptions();
+  getUstensilsOptions();
+}
 
-// Update .recipesNumber element with the number of recipes
-if (allRecipes.length === 0) {
-  recipesNumberElement.textContent = '0 recette';
-} else if (allRecipes.length === 1) {
-  recipesNumberElement.textContent = '1 recette';
-} else {
-  recipesNumberElement.textContent = allRecipes.length + ' recettes';
+// Displays the initial number of recipes.
+function displayInitialRecipeCount() {
+  updateRecipeCount();
 }
