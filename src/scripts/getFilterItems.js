@@ -4,13 +4,14 @@ export function capitalizeFirstLetter(string) {
   return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
-function populateDropdown(ulSelector, itemsSet) {
+function populateDropdown(ulSelector, itemsSet, type) {
   const ulElement = document.querySelector(ulSelector);
   ulElement.innerHTML = '';
 
   itemsSet.forEach((item) => {
     const li = document.createElement('li');
     li.textContent = item;
+    li.setAttribute('data-type', type);
     ulElement.appendChild(li);
   });
 }
@@ -32,6 +33,7 @@ export function getIngredientsOptions() {
   populateDropdown(
     '#dropdownSearchIngredients + .fa-solid + ul',
     ingredientsSet,
+    'ingredient',
   );
 }
 
@@ -48,7 +50,11 @@ export function getApparelsOptions() {
       .sort((a, b) => a.localeCompare(b, 'fr')),
   );
 
-  populateDropdown('#dropdownSearchAppareils + .fa-solid + ul', appliancesSet);
+  populateDropdown(
+    '#dropdownSearchAppareils + .fa-solid + ul',
+    appliancesSet,
+    'apparel',
+  );
 }
 
 export function getUstensilsOptions() {
@@ -66,5 +72,9 @@ export function getUstensilsOptions() {
       .sort((a, b) => a.localeCompare(b, 'fr')),
   );
 
-  populateDropdown('#dropdownSearchUstensiles + .fa-solid + ul', ustensilsSet);
+  populateDropdown(
+    '#dropdownSearchUstensiles + .fa-solid + ul',
+    ustensilsSet,
+    'ustensil',
+  );
 }
