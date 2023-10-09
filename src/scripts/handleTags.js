@@ -1,4 +1,5 @@
 const addedTags = new Set();
+let selectedTags = [];
 
 document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('.dropdownContent ul').forEach((ul) => {
@@ -26,6 +27,11 @@ export function addTag(content) {
     addedTags.delete(content);
   });
   tagsContainer.appendChild(newTag);
+
+  selectedTags.push(content.toLowerCase());
+
+  const event = new CustomEvent('tagAdded', { detail: content });
+  document.dispatchEvent(event);
 }
 
 document.addEventListener('DOMContentLoaded', () => {
