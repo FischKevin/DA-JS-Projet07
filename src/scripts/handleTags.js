@@ -1,18 +1,31 @@
+import { searchByTags } from './searchTag.js';
+
 const addedTags = new Set();
-let selectedTags = [];
+let selectedTags = { ingredient: [], appliance: [], ustensil: [] };
 
 document.addEventListener('DOMContentLoaded', () => {
-  document.querySelectorAll('.dropdownContent ul').forEach((ul) => {
-    ul.addEventListener('click', (event) => {
+  document.querySelectorAll('.dropdownContent ul').forEach((li) => {
+    li.addEventListener('click', (event) => {
       const li = event.target;
+      const type = li.dataset.type;
       if (li.tagName === 'LI' && !li.classList.contains('selected')) {
-        addTag(li.textContent);
+        addTag(li.textContent, type);
       }
+      searchByTags();
     });
   });
 });
 
-export function addTag(content) {
+// Add a tag to the list of selected tags
+export function addTag(content, type) {
+  if (!type) {
+    return;
+  }
+
+  if (!selectedTags[type]) {
+    return;
+  }
+
   if (addedTags.has(content)) {
     return;
   }
@@ -22,16 +35,28 @@ export function addTag(content) {
   newTag.textContent = content;
   addedTags.add(content);
 
+  newTag.dataset.type = type;
+
   newTag.addEventListener('click', () => {
-    newTag.remove();
-    addedTags.delete(content);
+    removeTag(newTag, content, type);
   });
+
   tagsContainer.appendChild(newTag);
 
-  selectedTags.push(content.toLowerCase());
-
-  const event = new CustomEvent('tagAdded', { detail: content });
+  selectedTags[type].push(content.toLowerCase());
+  const event = new CustomEvent('tagAdded', { detail: { content, type } }); // transmettez le type et le contenu en tant que détail
   document.dispatchEvent(event);
+}
+
+// Remove a tag from the list of selected tags
+function removeTag(tagElement, content, type) {
+  tagElement.remove();
+  addedTags.delete(content);
+
+  const index = selectedTags[type].indexOf(content.toLowerCase());
+  if (index > -1) {
+    selectedTags[type].splice(index, 1);
+  }
 }
 
 document.addEventListener('DOMContentLoaded', () => {

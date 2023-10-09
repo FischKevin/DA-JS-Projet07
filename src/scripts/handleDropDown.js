@@ -1,5 +1,6 @@
 import { capitalizeFirstLetter } from './getFilterItems.js';
 
+// Update the dropdown lists with the matched recipes
 export function updateListOptions(matchedRecipes) {
   const ingredientsSet = new Set();
   const ustensilesSet = new Set();
@@ -15,12 +16,25 @@ export function updateListOptions(matchedRecipes) {
     appareilsSet.add(recipe.appliance.toLowerCase());
   });
 
-  updateListElement(document.getElementById('ingredientsList'), ingredientsSet);
-  updateListElement(document.getElementById('ustensilesList'), ustensilesSet);
-  updateListElement(document.getElementById('appareilsList'), appareilsSet);
+  updateListElement(
+    document.getElementById('ingredientsList'),
+    ingredientsSet,
+    'ingredient',
+  );
+  updateListElement(
+    document.getElementById('ustensilesList'),
+    ustensilesSet,
+    'ustensil',
+  );
+  updateListElement(
+    document.getElementById('appareilsList'),
+    appareilsSet,
+    'appliance',
+  );
 }
 
-export function updateListElement(listElement, itemsSet) {
+// Update the dropdown list with the elements of the matched recipes
+export function updateListElement(listElement, itemsSet, itemType) {
   if (!listElement) {
     return;
   }
@@ -33,6 +47,10 @@ export function updateListElement(listElement, itemsSet) {
   sortedItems.forEach((item) => {
     const liElement = document.createElement('li');
     liElement.textContent = item;
+
+    // Adding data-type attribute
+    liElement.setAttribute('data-type', itemType);
+
     listElement.appendChild(liElement);
   });
 }

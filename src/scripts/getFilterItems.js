@@ -37,7 +37,7 @@ export function getIngredientsOptions() {
   );
 }
 
-export function getApparelsOptions() {
+export function getAppliancesOptions() {
   let appliancesSet = new Set();
 
   recipes.forEach((recipe) => {
@@ -53,7 +53,7 @@ export function getApparelsOptions() {
   populateDropdown(
     '#dropdownSearchAppareils + .fa-solid + ul',
     appliancesSet,
-    'apparel',
+    'appliance',
   );
 }
 

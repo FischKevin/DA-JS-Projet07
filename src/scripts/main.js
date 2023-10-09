@@ -1,11 +1,11 @@
 import { recipes } from './recipes.js';
 import { recipesFactory } from './factories/recipeFactory.js';
 import { addTag } from './handleTags.js';
-import { searchRecipes, updateRecipeSection } from './sort.js';
+import { searchRecipes, updateRecipeSection } from './searchMain.js';
 import { updateRecipeCount, clearSearchFields } from './utils.js';
 import { updateListOptions, updateListElement } from './handleDropDown.js';
 import {
-  getApparelsOptions,
+  getAppliancesOptions,
   getIngredientsOptions,
   getUstensilsOptions,
 } from './getFilterItems.js';
@@ -35,7 +35,7 @@ function clearInitialSearchFields() {
 // Gets filter items and populates the dropdown lists.
 function populateDropdownOptions() {
   getIngredientsOptions();
-  getApparelsOptions();
+  getAppliancesOptions();
   getUstensilsOptions();
 }
 

@@ -19,6 +19,7 @@ export function recipesFactory(data) {
 
   // Add an image
   const recipeImg = document.createElement('img');
+  recipeImg.alt = data.name;
   recipeImg.src = `assets/recipes/${image}`;
   recipeDiv.appendChild(recipeImg);
 
