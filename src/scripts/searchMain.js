@@ -22,28 +22,52 @@ document.addEventListener('DOMContentLoaded', () => {
 // Search recipes by name, ingredients, or description
 export function searchRecipes(query) {
   const matchedRecipes = [];
+  const searchTerms = query.split(' ');
+
   for (let i = 0; i < recipes.length; i++) {
     const { name, ingredients, description } = recipes[i];
-    if (
-      name.toLowerCase().includes(query) ||
-      ingredientContainsQuery(ingredients, query) ||
-      description.toLowerCase().includes(query)
-    ) {
+
+    let searchableText = name.toLowerCase() + ' ' + description.toLowerCase();
+
+    for (let j = 0; j < ingredients.length; j++) {
+      searchableText += ' ' + ingredients[j].ingredient.toLowerCase();
+    }
+
+    let allTermsFound = true;
+    for (let j = 0; j < searchTerms.length; j++) {
+      const term = searchTerms[j].toLowerCase();
+
+      let termFound = false;
+      for (let k = 0; k <= searchableText.length - term.length; k++) {
+        if (searchableText.substring(k, k + term.length) === term) {
+          termFound = true;
+          break;
+        }
+      }
+
+      if (!termFound) {
+        allTermsFound = false;
+        break;
+      }
+    }
+
+    if (allTermsFound) {
       matchedRecipes.push(recipes[i]);
     }
   }
+
   return matchedRecipes;
 }
 
 // Check if any ingredient contains the query
-function ingredientContainsQuery(ingredients, query) {
-  for (let i = 0; i < ingredients.length; i++) {
-    if (ingredients[i].ingredient.toLowerCase().includes(query)) {
-      return true;
-    }
-  }
-  return false;
-}
+// function ingredientContainsQuery(ingredients, query) {
+//   for (let i = 0; i < ingredients.length; i++) {
+//     if (ingredients[i].ingredient.toLowerCase().includes(query)) {
+//       return true;
+//     }
+//   }
+//   return false;
+// }
 
 // Update the recipe section with the matched recipes
 export function updateRecipeSection(matchedRecipes) {
