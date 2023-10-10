@@ -9,54 +9,25 @@ document.addEventListener('DOMContentLoaded', () => {
   searchInput.addEventListener('input', () => {
     const query = searchInput.value.trim().toLowerCase();
 
-    let matchedRecipes;
-    if (query.length >= 3) {
-      matchedRecipes = searchRecipes(query);
-    } else {
-      matchedRecipes = recipes;
-    }
+    const matchedRecipes = query.length >= 3 ? searchRecipes(query) : recipes;
     updateRecipeSection(matchedRecipes);
   });
 });
 
 // Search recipes by name, ingredients, or description
 export function searchRecipes(query) {
-  const matchedRecipes = [];
   const searchTerms = query.split(' ');
 
-  for (let i = 0; i < recipes.length; i++) {
-    const { name, ingredients, description } = recipes[i];
+  return recipes.filter((recipe) => {
+    const { name, ingredients, description } = recipe;
 
-    let searchableText = name.toLowerCase() + ' ' + description.toLowerCase();
+    let searchableText = [name, description]
+      .concat(ingredients.map((ing) => ing.ingredient))
+      .join(' ')
+      .toLowerCase();
 
-    for (let j = 0; j < ingredients.length; j++) {
-      searchableText += ' ' + ingredients[j].ingredient.toLowerCase();
-    }
-
-    let allTermsFound = true;
-    for (let j = 0; j < searchTerms.length; j++) {
-      const term = searchTerms[j].toLowerCase();
-
-      let termFound = false;
-      for (let k = 0; k <= searchableText.length - term.length; k++) {
-        if (searchableText.substring(k, k + term.length) === term) {
-          termFound = true;
-          break;
-        }
-      }
-
-      if (!termFound) {
-        allTermsFound = false;
-        break;
-      }
-    }
-
-    if (allTermsFound) {
-      matchedRecipes.push(recipes[i]);
-    }
-  }
-
-  return matchedRecipes;
+    return searchTerms.every((term) => searchableText.includes(term));
+  });
 }
 
 // Update the recipe section with the matched recipes
@@ -77,10 +48,10 @@ export function updateRecipeSection(matchedRecipes) {
       .value.trim()}’ vous pouvez chercher « tarte aux pommes », « poisson », etc.`;
     recipeSection.appendChild(errorMessage);
   } else {
-    for (let i = 0; i < matchedRecipes.length; i++) {
-      const recipeCard = recipesFactory(matchedRecipes[i]);
+    matchedRecipes.forEach((recipe) => {
+      const recipeCard = recipesFactory(recipe);
       recipeSection.appendChild(recipeCard);
-    }
+    });
   }
 
   updateRecipeCount(matchedRecipes);
