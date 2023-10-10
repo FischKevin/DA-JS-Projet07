@@ -69,9 +69,18 @@ export function updateRecipeSection(matchedRecipes) {
   const recipeSection = document.querySelector('.recipeSection');
   recipeSection.textContent = '';
 
-  for (let i = 0; i < matchedRecipes.length; i++) {
-    const recipeCard = recipesFactory(matchedRecipes[i]);
-    recipeSection.appendChild(recipeCard);
+  if (matchedRecipes.length === 0) {
+    const errorMessage = document.createElement('p');
+    errorMessage.classList.add('errorMessage');
+    errorMessage.textContent = `Aucune recette ne contient ‘${document
+      .querySelector('.header--input')
+      .value.trim()}’ vous pouvez chercher « tarte aux pommes », « poisson », etc.`;
+    recipeSection.appendChild(errorMessage);
+  } else {
+    for (let i = 0; i < matchedRecipes.length; i++) {
+      const recipeCard = recipesFactory(matchedRecipes[i]);
+      recipeSection.appendChild(recipeCard);
+    }
   }
 
   updateRecipeCount(matchedRecipes);

@@ -236,6 +236,14 @@ main .recipeSection {
   row-gap: 50px;
 }
 
+main .recipeSection .errorMessage {
+  font-family: var(--secondary-font-family);
+  font-size: 22px;
+  margin-bottom: 40px;
+  width: 1440px;
+  text-align: center;
+}
+
 main .recipeSection .recipe {
   border-radius: 5px;
   box-shadow: 1px 1px 1px 0px rgba(0, 0, 0, 0.1);
