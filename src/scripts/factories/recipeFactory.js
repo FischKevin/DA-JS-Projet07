@@ -1,4 +1,5 @@
 import { recipes } from '../recipes.js';
+import { capitalizeFirstLetter } from '../utils.js';
 
 export function recipesFactory(data) {
   const {
@@ -61,7 +62,7 @@ export function recipesFactory(data) {
     ingredientDiv.classList.add('recipeIngredientsItems');
 
     const ingredientName = document.createElement('span');
-    ingredientName.innerText = ingredient.ingredient;
+    ingredientName.innerText = capitalizeFirstLetter(ingredient.ingredient);
     ingredientName.classList.add('recipeIngredientsName');
 
     // Check if there's a quantity and unit, then display them with the ingredient name
