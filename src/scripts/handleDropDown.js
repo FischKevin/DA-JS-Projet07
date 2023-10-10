@@ -1,4 +1,4 @@
-import { capitalizeFirstLetter } from './getFilterItems.js';
+import { capitalizeFirstLetter } from './utils.js';
 
 // Update the dropdown lists with the matched recipes
 export function updateListOptions(matchedRecipes) {

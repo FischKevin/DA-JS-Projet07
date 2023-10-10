@@ -1,8 +1,5 @@
 import { recipes } from './recipes.js';
-
-export function capitalizeFirstLetter(string) {
-  return string.charAt(0).toUpperCase() + string.slice(1);
-}
+import { capitalizeFirstLetter } from './utils.js';
 
 function populateDropdown(ulSelector, itemsSet, type) {
   const ulElement = document.querySelector(ulSelector);
