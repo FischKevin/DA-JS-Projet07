@@ -9,12 +9,13 @@ document.addEventListener('DOMContentLoaded', () => {
   searchInput.addEventListener('input', () => {
     const query = searchInput.value.trim().toLowerCase();
 
+    let matchedRecipes;
     if (query.length >= 3) {
-      const matchedRecipes = searchRecipes(query);
-      updateRecipeSection(matchedRecipes);
+      matchedRecipes = searchRecipes(query);
     } else {
-      updateRecipeSection(recipes);
+      matchedRecipes = recipes;
     }
+    updateRecipeSection(matchedRecipes);
   });
 });
 
@@ -46,6 +47,12 @@ function ingredientContainsQuery(ingredients, query) {
 
 // Update the recipe section with the matched recipes
 export function updateRecipeSection(matchedRecipes) {
+  // vérifier si matchedRecipes est défini
+  if (!matchedRecipes) {
+    console.error('matchedRecipes est indéfini');
+    return;
+  }
+
   const recipeSection = document.querySelector('.recipeSection');
   recipeSection.innerHTML = '';
 

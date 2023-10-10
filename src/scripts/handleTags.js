@@ -1,4 +1,7 @@
+import { updateListElement } from './handleDropDown.js';
+import { updateRecipeSection } from './searchMain.js';
 import { searchByTags } from './searchTag.js';
+import { recipes } from './recipes.js';
 
 const addedTags = new Set();
 let selectedTags = { ingredient: [], appliance: [], ustensil: [] };
@@ -57,6 +60,9 @@ function removeTag(tagElement, content, type) {
   if (index > -1) {
     selectedTags[type].splice(index, 1);
   }
+  updateListElement();
+  updateRecipeSection(recipes);
+  searchByTags();
 }
 
 document.addEventListener('DOMContentLoaded', () => {
