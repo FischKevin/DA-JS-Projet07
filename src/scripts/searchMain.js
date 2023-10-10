@@ -59,26 +59,15 @@ export function searchRecipes(query) {
   return matchedRecipes;
 }
 
-// Check if any ingredient contains the query
-// function ingredientContainsQuery(ingredients, query) {
-//   for (let i = 0; i < ingredients.length; i++) {
-//     if (ingredients[i].ingredient.toLowerCase().includes(query)) {
-//       return true;
-//     }
-//   }
-//   return false;
-// }
-
 // Update the recipe section with the matched recipes
 export function updateRecipeSection(matchedRecipes) {
-  // vérifier si matchedRecipes est défini
   if (!matchedRecipes) {
     console.error('matchedRecipes est indéfini');
     return;
   }
 
   const recipeSection = document.querySelector('.recipeSection');
-  recipeSection.innerHTML = '';
+  recipeSection.textContent = '';
 
   for (let i = 0; i < matchedRecipes.length; i++) {
     const recipeCard = recipesFactory(matchedRecipes[i]);

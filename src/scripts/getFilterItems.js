@@ -3,7 +3,7 @@ import { capitalizeFirstLetter } from './utils.js';
 
 function populateDropdown(ulSelector, itemsSet, type) {
   const ulElement = document.querySelector(ulSelector);
-  ulElement.innerHTML = '';
+  ulElement.textContent = '';
 
   itemsSet.forEach((item) => {
     const li = document.createElement('li');

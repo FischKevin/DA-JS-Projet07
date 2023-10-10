@@ -39,7 +39,7 @@ export function updateListElement(listElement, itemsSet, itemType) {
     return;
   }
 
-  listElement.innerHTML = '';
+  listElement.textContent = '';
 
   // Convert itemsSet to an array, sort it, and capitalize the first letter of each item
   const sortedItems = Array.from(itemsSet).map(capitalizeFirstLetter).sort();
