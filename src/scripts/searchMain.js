@@ -3,29 +3,28 @@ import { recipesFactory } from './factories/recipeFactory.js';
 import { updateRecipeCount } from './utils.js';
 import { updateListOptions } from './handleDropDown.js';
 
+export let currentSearchQuery = '';
+
 document.addEventListener('DOMContentLoaded', () => {
   const searchInput = document.querySelector('.header--input');
 
   searchInput.addEventListener('input', () => {
-    const query = searchInput.value.trim().toLowerCase();
-
-    let matchedRecipes;
-    if (query.length >= 3) {
-      matchedRecipes = searchRecipes(query);
-    } else {
-      matchedRecipes = recipes;
-    }
+    currentSearchQuery = searchInput.value.trim().toLowerCase();
+    const matchedRecipes =
+      currentSearchQuery.length >= 3
+        ? searchRecipes(currentSearchQuery)
+        : recipes;
     updateRecipeSection(matchedRecipes);
   });
 });
 
 // Search recipes by name, ingredients, or description
-export function searchRecipes(query) {
+export function searchRecipes(query, recipesToFilter = recipes) {
   const matchedRecipes = [];
   const searchTerms = query.split(' ');
 
-  for (let i = 0; i < recipes.length; i++) {
-    const { name, ingredients, description } = recipes[i];
+  for (let i = 0; i < recipesToFilter.length; i++) {
+    const { name, ingredients, description } = recipesToFilter[i];
 
     let searchableText = name.toLowerCase() + ' ' + description.toLowerCase();
 
@@ -52,7 +51,7 @@ export function searchRecipes(query) {
     }
 
     if (allTermsFound) {
-      matchedRecipes.push(recipes[i]);
+      matchedRecipes.push(recipesToFilter[i]);
     }
   }
 
@@ -61,11 +60,6 @@ export function searchRecipes(query) {
 
 // Update the recipe section with the matched recipes
 export function updateRecipeSection(matchedRecipes) {
-  if (!matchedRecipes) {
-    console.error('matchedRecipes est indéfini');
-    return;
-  }
-
   const recipeSection = document.querySelector('.recipeSection');
   recipeSection.textContent = '';
 
@@ -77,10 +71,10 @@ export function updateRecipeSection(matchedRecipes) {
       .value.trim()}’ vous pouvez chercher « tarte aux pommes », « poisson », etc.`;
     recipeSection.appendChild(errorMessage);
   } else {
-    for (let i = 0; i < matchedRecipes.length; i++) {
-      const recipeCard = recipesFactory(matchedRecipes[i]);
+    matchedRecipes.forEach((recipe) => {
+      const recipeCard = recipesFactory(recipe);
       recipeSection.appendChild(recipeCard);
-    }
+    });
   }
 
   updateRecipeCount(matchedRecipes);
