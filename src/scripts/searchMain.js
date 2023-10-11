@@ -3,40 +3,37 @@ import { recipesFactory } from './factories/recipeFactory.js';
 import { updateRecipeCount } from './utils.js';
 import { updateListOptions } from './handleDropDown.js';
 
+export let currentSearchQuery = '';
+
 document.addEventListener('DOMContentLoaded', () => {
   const searchInput = document.querySelector('.header--input');
 
   searchInput.addEventListener('input', () => {
-    const query = searchInput.value.trim().toLowerCase();
-
-    const matchedRecipes = query.length >= 3 ? searchRecipes(query) : recipes;
+    currentSearchQuery = searchInput.value.trim().toLowerCase();
+    const matchedRecipes =
+      currentSearchQuery.length >= 3
+        ? searchRecipes(currentSearchQuery)
+        : recipes;
     updateRecipeSection(matchedRecipes);
   });
 });
 
-// Search recipes by name, ingredients, or description
-export function searchRecipes(query) {
+export function searchRecipes(query, recipesToFilter = recipes) {
   const searchTerms = query.split(' ');
 
-  return recipes.filter((recipe) => {
-    const { name, ingredients, description } = recipe;
+  return recipesToFilter.filter(({ name, ingredients, description }) => {
+    const searchableText =
+      [name, description].map((text) => text.toLowerCase()).join(' ') +
+      ' ' +
+      ingredients.map((ing) => ing.ingredient.toLowerCase()).join(' ');
 
-    let searchableText = [name, description]
-      .concat(ingredients.map((ing) => ing.ingredient))
-      .join(' ')
-      .toLowerCase();
-
-    return searchTerms.every((term) => searchableText.includes(term));
+    return searchTerms.every((term) =>
+      searchableText.includes(term.toLowerCase()),
+    );
   });
 }
 
-// Update the recipe section with the matched recipes
 export function updateRecipeSection(matchedRecipes) {
-  if (!matchedRecipes) {
-    console.error('matchedRecipes est indéfini');
-    return;
-  }
-
   const recipeSection = document.querySelector('.recipeSection');
   recipeSection.textContent = '';
 
@@ -49,8 +46,7 @@ export function updateRecipeSection(matchedRecipes) {
     recipeSection.appendChild(errorMessage);
   } else {
     matchedRecipes.forEach((recipe) => {
-      const recipeCard = recipesFactory(recipe);
-      recipeSection.appendChild(recipeCard);
+      recipeSection.appendChild(recipesFactory(recipe));
     });
   }
 

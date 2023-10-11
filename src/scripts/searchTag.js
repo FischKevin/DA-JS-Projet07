@@ -1,5 +1,6 @@
 import { recipes } from './recipes.js';
-import { updateRecipeSection } from './searchMain.js';
+import { updateRecipeSection, searchRecipes } from './searchMain.js';
+import { currentSearchQuery } from './searchMain.js';
 
 export function searchByTags() {
   let selectedTags = document.querySelectorAll('.tag');
@@ -10,12 +11,12 @@ export function searchByTags() {
 
     selectedTags.forEach((selectedTag) => {
       let tagType = selectedTag.dataset.type;
-      let tagValue = selectedTag.textContent.trim();
+      let tagValue = selectedTag.textContent.trim().toLowerCase();
 
       switch (tagType) {
         case 'ingredient': {
-          let ingredientNames = recipeData.ingredients.map(
-            (ing) => ing.ingredient,
+          let ingredientNames = recipeData.ingredients.map((ing) =>
+            ing.ingredient.trim().toLowerCase(),
           );
           if (!ingredientNames.includes(tagValue)) allTagsFound = false;
           break;
@@ -44,6 +45,11 @@ export function searchByTags() {
       recipesToDisplay.push(recipeData);
     }
   });
+
+  // Filtrer avec la requête de recherche si existante
+  if (currentSearchQuery && currentSearchQuery.length >= 3) {
+    recipesToDisplay = searchRecipes(currentSearchQuery, recipesToDisplay);
+  }
 
   updateRecipeSection(recipesToDisplay);
 }
