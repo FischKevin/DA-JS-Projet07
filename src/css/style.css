@@ -302,7 +302,7 @@ main .recipe .recipeDescription {
   -webkit-line-clamp: 5;
   -webkit-box-orient: vertical;
   overflow: hidden;
-  max-height: 106px;
+  max-height: 104px;
   line-height: 1.2em;
   margin-bottom: 0px;
 }
