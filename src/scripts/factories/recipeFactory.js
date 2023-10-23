@@ -2,17 +2,7 @@ import { recipes } from '../recipes.js';
 import { capitalizeFirstLetter } from '../utils.js';
 
 export function recipesFactory(data) {
-  const {
-    // id,
-    image,
-    time,
-    name,
-    description,
-    ingredients,
-    // servings,
-    // appliance,
-    // ustensils,
-  } = data;
+  const { image, time, name, description, ingredients } = data;
 
   // Create div element for recipe
   const recipeDiv = document.createElement('div');

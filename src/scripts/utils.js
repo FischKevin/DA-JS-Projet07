@@ -15,6 +15,7 @@ export function updateRecipeCount() {
   }
 }
 
+// Clear search field
 export function clearSearchFields(inputIds) {
   inputIds.forEach((id) => {
     const inputElement = document.getElementById(id);
@@ -24,6 +25,7 @@ export function clearSearchFields(inputIds) {
   });
 }
 
+// Capitalize first letter
 export function capitalizeFirstLetter(string) {
   return string.charAt(0).toUpperCase() + string.slice(1);
 }

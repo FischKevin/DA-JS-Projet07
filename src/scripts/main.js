@@ -3,7 +3,7 @@ import { recipesFactory } from './factories/recipeFactory.js';
 import { addTag } from './handleTags.js';
 import { searchRecipes, updateRecipeSection } from './searchMain.js';
 import { updateRecipeCount, clearSearchFields } from './utils.js';
-import { updateListOptions, updateListElement } from './handleDropDown.js';
+// import { updateListOptions, updateListElement } from './handleDropDown.js';
 import {
   getAppliancesOptions,
   getIngredientsOptions,
