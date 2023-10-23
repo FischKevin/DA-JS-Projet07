@@ -255,7 +255,7 @@ main .recipeSection .recipe {
 }
 
 main .recipe img {
-  width: 100%;
+  width: 380px;
   height: 253px;
   border-radius: 5px 5px 0 0;
   object-fit: cover;
