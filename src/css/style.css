@@ -1,1 +1,344 @@
-main .addedTags .tag:after,main .listBoxesAndRecipesNumber .dropdownTitle:after{font-family:'Font Awesome 6 Free';margin-left:40px;font-weight:900;transition:transform .3s}.header--input-elements .header--input,main .addedTags .tag,main .recipeSection .errorMessage,main .recipeSection .recipe{font-family:var(--secondary-font-family)}*{--primary-color:#ffd15b;--secondary-color:#1b1b1b;--tertiary-color:#ededed;--light-grey:#c6c6c6;--dark-grey:#7a7a7a;--primary-font-family:Anton,Arial,Sans-serif;--secondary-font-family:Manrope,Arial,Sans-serif}body{width:1440px;margin:0 auto;font-family:Anton,Arial,Sans-serif}header{background:url('../../assets/site/lampos-aritonang-24gR_9lCdes-unsplash1.png');width:100%;height:667px}.header--logo{height:25px;width:207px;margin-top:50px;margin-left:70px}.header--text{font-family:var(--primary-font-family);font-size:2.5rem;color:var(--primary-color);text-align:center;margin:12% auto 0;width:45%}.header--input-elements .header--input{width:954px;height:72px;border-radius:11px;border:none;font-size:22px;margin:0 calc(50% - (954px / 2));padding-left:20px;margin-top:35px}.header--input-elements .header--input:placeholder{padding-left:20px}.header--input-elements .fa-stack{position:relative;bottom:69px;left:79%}.header--input-elements .fa-square{color:#000}.header--input-elements .fa-magnifying-glass{color:#fff}main{background:var(--tertiary-color);width:100%;height:100%;padding-bottom:140px}main .listBoxesAndRecipesNumber{display:flex;justify-content:space-between;margin-left:70px;margin-right:70px;gap:20px;position:absolute}main .listBoxesAndRecipesNumber .listBoxes{display:flex;padding:20px 5px;gap:55px}main .listBoxesAndRecipesNumber .dropdown{position:relative;display:inline-block;background-color:#fff;width:195px;border-radius:10px;margin:20px 30px 20px 0;font-family:var(--secondary-font-family);height:fit-content}main .listBoxesAndRecipesNumber .dropdownTitle{position:relative;display:inline-block;height:56px;background-color:#fff;border-radius:10px;padding-left:15px;border:none;font-size:16px;font-weight:500;width:100%}main .listBoxesAndRecipesNumber .dropdownTitle:after{content:'\f078';display:inline-block}main .listBoxesAndRecipesNumber .dropdownContent{display:none;position:relative;min-width:160px;z-index:1;background-color:#fff;border-radius:10px}main .addedTags .tag,main .listBoxesAndRecipesNumber .dropdownContent li:hover{background-color:var(--primary-color)}main .listBoxesAndRecipesNumber .dropdown:hover>.dropdownContent{display:block;position:relative;box-shadow:0 10px 16px -6px rgba(0,0,0,.2)}main .listBoxesAndRecipesNumber #dropdownSearchAppareils,main .listBoxesAndRecipesNumber #dropdownSearchIngredients,main .listBoxesAndRecipesNumber #dropdownSearchUstensiles{margin:0 15px;width:122px;height:36px;border:1px solid var(--light-grey);position:relative;padding-right:30px;padding-left:10px}main .listBoxesAndRecipesNumber .fa-magnifying-glass{color:var(--light-grey);position:absolute;top:12px;right:24px}main .listBoxesAndRecipesNumber .dropdownContent ul{padding:15px 0;margin-bottom:0;display:flex;flex-wrap:wrap;max-height:60vh;width:767px;background-color:#fff;overflow-y:auto;box-shadow:0 10px 16px -6px rgba(0,0,0,.2);border-radius:0 10px 10px}main .listBoxesAndRecipesNumber .dropdownContent li{padding:8px 16px;cursor:pointer;list-style:none;text-align:left;font-size:14px;font-weight:400;width:25%;box-sizing:border-box}main .recipesNumber{font-size:21px;font-weight:400;margin-top:45px;left:390px;position:relative}main .addedTags{display:flex;flex-wrap:wrap;position:relative;flex-direction:row;margin-left:70px;top:115px;gap:25px;padding-left:5px}main .addedTags .tag{border-radius:10px;padding:17px}main .addedTags .tag:after{content:'\f00d';display:inline-block}main .recipeSection{margin-left:auto;margin-right:auto;width:90%;display:grid;grid-template-columns:1fr 1fr 1fr;column-gap:70px;row-gap:10px;padding-bottom:60px;justify-items:center;align-items:center;top:140px;position:relative;row-gap:50px}main .recipeSection .errorMessage{font-size:22px;margin-bottom:40px;width:1440px;text-align:center}main .recipeSection .recipe{border-radius:5px;box-shadow:1px 1px 1px 0 rgba(0,0,0,.1);height:645px;width:380px;background-color:#fff;overflow:hidden}main .recipe img{width:380px;height:253px;border-radius:5px 5px 0 0;object-fit:cover;margin-bottom:-20px}main .recipe .recipeDuration{font-size:12px;font-weight:400;position:relative;background-color:var(--primary-color);bottom:220px;left:300px;height:23px;width:65px;border-radius:14px;display:block;text-align:center;padding-top:5px}main .recipe .recipeName{font-family:var(--primary-font-family);font-size:18px;font-weight:400;margin-top:0;padding-left:15px}main .recipeSection .recipe h3{font-family:var(--secondary-font-family);font-size:12px;font-weight:700;color:var(--dark-grey);margin-bottom:10px}main .recipe .recipeDescription{font-family:var(--secondary-font-family);font-size:14px;font-weight:400;padding:0 15px 3px;display:-webkit-box;-webkit-line-clamp:5;-webkit-box-orient:vertical;overflow:hidden;max-height:106px;line-height:1.2em;margin-bottom:0}main .recipe .recipeIngredients{font-family:var(--secondary-font-family);font-size:14px;font-weight:400;padding-left:15px;display:grid;grid-template-columns:repeat(2,1fr);gap:20px}main .recipe .recipeIngredients h3{margin-bottom:-3px}main .recipe .recipeIngredients .recipeIngredientsItems{display:flex;flex-direction:column;align-items:start;gap:5px}main .recipe .recipeIngredients .recipeIngredientsName{font-family:var(--secondary-font-family);font-size:14px;font-weight:500;margin-bottom:-5px;margin-top:-5px}main .recipe .recipeIngredients .recipeIngredientsQuantity{font-family:var(--secondary-font-family);font-size:14px;font-weight:400;color:var(--dark-grey)}
+* {
+  --primary-color: #ffd15b;
+  --secondary-color: #1b1b1b;
+  --tertiary-color: #ededed;
+  --light-grey: #c6c6c6;
+  --dark-grey: #7a7a7a;
+
+  --primary-font-family: Anton, Arial, Sans-serif;
+  --secondary-font-family: Manrope, Arial, Sans-serif;
+}
+
+body {
+  width: 1440px;
+  margin: 0 auto;
+  font-family: Anton, Arial, Sans-serif;
+}
+
+header {
+  background: url('../../assets/site/lampos-aritonang-24gR_9lCdes-unsplash1.png');
+  width: 100%;
+  height: 667px;
+}
+
+.header--logo {
+  height: 25px;
+  width: 207px;
+  margin-top: 50px;
+  margin-left: 70px;
+}
+
+.header--text {
+  font-family: var(--primary-font-family);
+  font-size: 2.5rem;
+  color: var(--primary-color);
+  text-align: center;
+  margin: 0 auto;
+  width: 45%;
+  margin-top: 12%;
+}
+
+.header--input-elements .header--input {
+  width: 954px;
+  height: 72px;
+  border-radius: 11px;
+  border: none;
+  font-family: var(--secondary-font-family);
+  font-size: 22px;
+  margin: 0 calc(50% - (954px / 2));
+  padding-left: 20px;
+  margin-top: 35px;
+}
+
+.header--input-elements .header--input:placeholder {
+  padding-left: 20px;
+}
+
+.header--input-elements .fa-stack {
+  position: relative;
+  bottom: 69px;
+  left: 79%;
+}
+
+.header--input-elements .fa-square {
+  color: black;
+}
+
+.header--input-elements .fa-magnifying-glass {
+  color: white;
+}
+
+main {
+  background: var(--tertiary-color);
+  width: 100%;
+  height: 100%;
+  padding-bottom: 140px;
+}
+
+main .listBoxesAndRecipesNumber {
+  display: flex;
+  justify-content: space-between;
+  margin-left: 70px;
+  margin-right: 70px;
+  gap: 20px;
+  position: absolute;
+}
+
+main .listBoxesAndRecipesNumber .listBoxes {
+  display: flex;
+  padding: 20px 5px;
+  gap: 55px;
+}
+
+main .listBoxesAndRecipesNumber .dropdown {
+  position: relative;
+  display: inline-block;
+  background-color: white;
+  width: 195px;
+  border-radius: 10px;
+  margin: 20px 30px 20px 0px;
+  font-family: var(--secondary-font-family);
+  height: fit-content;
+}
+
+main .listBoxesAndRecipesNumber .dropdownTitle {
+  position: relative;
+  display: inline-block;
+  height: 56px;
+  background-color: white;
+  border-radius: 10px;
+  padding-left: 15px;
+  border: none;
+  font-size: 16px;
+  font-weight: 500;
+  width: 100%;
+}
+
+main .listBoxesAndRecipesNumber .dropdownTitle:after {
+  font-family: 'Font Awesome 6 Free';
+  content: '\f078';
+  margin-left: 40px;
+  font-weight: 900;
+  display: inline-block;
+  transition: transform 0.3s;
+}
+
+main .listBoxesAndRecipesNumber .dropdownContent {
+  display: none;
+  position: relative;
+  min-width: 160px;
+  z-index: 1;
+  background-color: white;
+  border-radius: 10px;
+}
+
+main .listBoxesAndRecipesNumber .dropdown:hover > .dropdownContent {
+  display: block;
+  position: relative;
+  box-shadow: 0px 10px 16px -6px rgba(0, 0, 0, 0.2);
+}
+
+main .listBoxesAndRecipesNumber #dropdownSearchIngredients,
+main .listBoxesAndRecipesNumber #dropdownSearchAppareils,
+main .listBoxesAndRecipesNumber #dropdownSearchUstensiles {
+  margin: 0px 15px;
+  width: 122px;
+  height: 36px;
+  border: 1px solid var(--light-grey);
+  position: relative;
+  padding-right: 30px;
+  padding-left: 10px;
+}
+
+main .listBoxesAndRecipesNumber .fa-magnifying-glass {
+  color: var(--light-grey);
+  position: absolute;
+  top: 12px;
+  right: 24px;
+}
+
+main .listBoxesAndRecipesNumber .dropdownContent ul {
+  padding: 15px 0 15px 0;
+  margin-bottom: 0px;
+  display: flex;
+  flex-wrap: wrap;
+  max-height: 60vh;
+  width: 767px;
+  background-color: white;
+  overflow-y: auto;
+  box-shadow: 0px 10px 16px -6px rgba(0, 0, 0, 0.2);
+  border-radius: 0 10px 10px 10px;
+}
+
+main .listBoxesAndRecipesNumber .dropdownContent li {
+  padding: 8px 16px;
+  cursor: pointer;
+  list-style: none;
+  text-align: left;
+  font-size: 14px;
+  font-weight: 400;
+  width: 25%;
+  box-sizing: border-box;
+}
+
+main .listBoxesAndRecipesNumber .dropdownContent li:hover {
+  background-color: var(--primary-color);
+}
+
+main .recipesNumber {
+  font-size: 21px;
+  font-weight: 400;
+  margin-top: 45px;
+  left: 390px;
+  position: relative;
+}
+
+main .addedTags {
+  display: flex;
+  flex-wrap: wrap;
+  position: relative;
+  flex-direction: row;
+  margin-left: 70px;
+  top: 115px;
+  gap: 25px;
+  padding-left: 5px;
+}
+
+main .addedTags .tag {
+  background-color: var(--primary-color);
+  font-family: var(--secondary-font-family);
+  border-radius: 10px;
+  padding: 17px;
+}
+
+main .addedTags .tag:after {
+  font-family: 'Font Awesome 6 Free';
+  content: '\f00d';
+  margin-left: 40px;
+  font-weight: 900;
+  display: inline-block;
+  transition: transform 0.3s;
+}
+
+main .recipeSection {
+  margin-left: auto;
+  margin-right: auto;
+  width: 90%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  column-gap: 70px;
+  row-gap: 10px;
+  padding-bottom: 60px;
+  justify-items: center;
+  align-items: center;
+  top: 140px;
+  position: relative;
+  row-gap: 50px;
+}
+
+main .recipeSection .errorMessage {
+  font-family: var(--secondary-font-family);
+  font-size: 22px;
+  margin-bottom: 40px;
+  width: 1440px;
+  text-align: center;
+}
+
+main .recipeSection .recipe {
+  border-radius: 5px;
+  box-shadow: 1px 1px 1px 0px rgba(0, 0, 0, 0.1);
+  font-family: var(--secondary-font-family);
+  height: 645px;
+  width: 380px;
+  background-color: white;
+  overflow: hidden;
+}
+
+main .recipe img {
+  width: 380px;
+  height: 253px;
+  border-radius: 5px 5px 0 0;
+  object-fit: cover;
+  margin-bottom: -20px;
+}
+
+main .recipe .recipeDuration {
+  font-size: 12px;
+  font-weight: 400;
+  position: relative;
+  background-color: var(--primary-color);
+  bottom: 220px;
+  left: 300px;
+  height: 23px;
+  width: 65px;
+  border-radius: 14px;
+  display: block;
+  text-align: center;
+  padding-top: 5px;
+}
+
+main .recipe .recipeName {
+  font-family: var(--primary-font-family);
+  font-size: 18px;
+  font-weight: 400;
+  margin-top: 0;
+  padding-left: 15px;
+}
+
+main .recipeSection .recipe h3 {
+  font-family: var(--secondary-font-family);
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--dark-grey);
+  margin-bottom: 10px;
+}
+
+main .recipe .recipeDescription {
+  font-family: var(--secondary-font-family);
+  font-size: 14px;
+  font-weight: 400;
+  padding: 0 15px 3px 15px;
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  max-height: 106px;
+  line-height: 1.2em;
+  margin-bottom: 0px;
+}
+
+main .recipe .recipeIngredients {
+  font-family: var(--secondary-font-family);
+  font-size: 14px;
+  font-weight: 400;
+  padding-left: 15px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+main .recipe .recipeIngredients h3 {
+  margin-bottom: -3px;
+}
+
+main .recipe .recipeIngredients .recipeIngredientsItems {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 5px;
+}
+
+main .recipe .recipeIngredients .recipeIngredientsName {
+  font-family: var(--secondary-font-family);
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: -5px;
+  margin-top: -5px;
+}
+
+main .recipe .recipeIngredients .recipeIngredientsQuantity {
+  font-family: var(--secondary-font-family);
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--dark-grey);
+}
