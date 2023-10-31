@@ -4,30 +4,25 @@
   --tertiary-color: #ededed;
   --light-grey: #c6c6c6;
   --dark-grey: #7a7a7a;
-
   --primary-font-family: Anton, Arial, Sans-serif;
   --secondary-font-family: Manrope, Arial, Sans-serif;
 }
-
 body {
   width: 1440px;
   margin: 0 auto;
   font-family: Anton, Arial, Sans-serif;
 }
-
 header {
   background: url('../../assets/site/lampos-aritonang-24gR_9lCdes-unsplash1.png');
   width: 100%;
   height: 667px;
 }
-
 .header--logo {
   height: 25px;
   width: 207px;
   margin-top: 50px;
   margin-left: 70px;
 }
-
 .header--text {
   font-family: var(--primary-font-family);
   font-size: 2.5rem;
@@ -37,7 +32,6 @@ header {
   width: 45%;
   margin-top: 12%;
 }
-
 .header--input-elements .header--input {
   width: 954px;
   height: 72px;
@@ -49,32 +43,26 @@ header {
   padding-left: 20px;
   margin-top: 35px;
 }
-
 .header--input-elements .header--input::placeholder {
   padding-left: 20px;
 }
-
 .header--input-elements .fa-stack {
   position: relative;
   bottom: 69px;
   left: 79%;
 }
-
 .header--input-elements .fa-square {
   color: black;
 }
-
 .header--input-elements .fa-magnifying-glass {
   color: white;
 }
-
 main {
   background: var(--tertiary-color);
   width: 100%;
   height: 100%;
   padding-bottom: 140px;
 }
-
 main .listBoxesAndRecipesNumber {
   display: flex;
   justify-content: space-between;
@@ -83,13 +71,11 @@ main .listBoxesAndRecipesNumber {
   gap: 20px;
   position: absolute;
 }
-
 main .listBoxesAndRecipesNumber .listBoxes {
   display: flex;
   padding: 20px 5px;
   gap: 55px;
 }
-
 main .listBoxesAndRecipesNumber .dropdown {
   position: relative;
   display: inline-block;
@@ -100,7 +86,6 @@ main .listBoxesAndRecipesNumber .dropdown {
   font-family: var(--secondary-font-family);
   height: fit-content;
 }
-
 main .listBoxesAndRecipesNumber .dropdownTitle {
   position: relative;
   display: inline-block;
@@ -113,7 +98,6 @@ main .listBoxesAndRecipesNumber .dropdownTitle {
   font-weight: 500;
   width: 100%;
 }
-
 main .listBoxesAndRecipesNumber .dropdownTitle:after {
   font-family: 'Font Awesome 6 Free';
   content: '\f078';
@@ -122,7 +106,6 @@ main .listBoxesAndRecipesNumber .dropdownTitle:after {
   display: inline-block;
   transition: transform 0.3s;
 }
-
 main .listBoxesAndRecipesNumber .dropdownContent {
   display: none;
   position: relative;
@@ -131,13 +114,11 @@ main .listBoxesAndRecipesNumber .dropdownContent {
   background-color: white;
   border-radius: 10px;
 }
-
 main .listBoxesAndRecipesNumber .dropdown:hover > .dropdownContent {
   display: block;
   position: relative;
   box-shadow: 0px 10px 16px -6px rgba(0, 0, 0, 0.2);
 }
-
 main .listBoxesAndRecipesNumber #dropdownSearchIngredients,
 main .listBoxesAndRecipesNumber #dropdownSearchAppareils,
 main .listBoxesAndRecipesNumber #dropdownSearchUstensiles {
@@ -149,14 +130,12 @@ main .listBoxesAndRecipesNumber #dropdownSearchUstensiles {
   padding-right: 30px;
   padding-left: 10px;
 }
-
 main .listBoxesAndRecipesNumber .fa-magnifying-glass {
   color: var(--light-grey);
   position: absolute;
   top: 12px;
   right: 24px;
 }
-
 main .listBoxesAndRecipesNumber .dropdownContent ul {
   padding: 15px 0 15px 0;
   margin-bottom: 0px;
@@ -169,7 +148,6 @@ main .listBoxesAndRecipesNumber .dropdownContent ul {
   box-shadow: 0px 10px 16px -6px rgba(0, 0, 0, 0.2);
   border-radius: 0 10px 10px 10px;
 }
-
 main .listBoxesAndRecipesNumber .dropdownContent li {
   padding: 8px 16px;
   cursor: pointer;
@@ -180,11 +158,9 @@ main .listBoxesAndRecipesNumber .dropdownContent li {
   width: 25%;
   box-sizing: border-box;
 }
-
 main .listBoxesAndRecipesNumber .dropdownContent li:hover {
   background-color: var(--primary-color);
 }
-
 main .recipesNumber {
   font-size: 21px;
   font-weight: 400;
@@ -192,7 +168,6 @@ main .recipesNumber {
   left: 390px;
   position: relative;
 }
-
 main .addedTags {
   display: flex;
   flex-wrap: wrap;
@@ -203,14 +178,12 @@ main .addedTags {
   gap: 25px;
   padding-left: 5px;
 }
-
 main .addedTags .tag {
   background-color: var(--primary-color);
   font-family: var(--secondary-font-family);
   border-radius: 10px;
   padding: 17px;
 }
-
 main .addedTags .tag:after {
   font-family: 'Font Awesome 6 Free';
   content: '\f00d';
@@ -219,7 +192,6 @@ main .addedTags .tag:after {
   display: inline-block;
   transition: transform 0.3s;
 }
-
 main .recipeSection {
   margin-left: auto;
   margin-right: auto;
@@ -235,7 +207,6 @@ main .recipeSection {
   position: relative;
   row-gap: 50px;
 }
-
 main .recipeSection .errorMessage {
   font-family: var(--secondary-font-family);
   font-size: 22px;
@@ -243,7 +214,6 @@ main .recipeSection .errorMessage {
   width: 1440px;
   text-align: center;
 }
-
 main .recipeSection .recipe {
   border-radius: 5px;
   box-shadow: 1px 1px 1px 0px rgba(0, 0, 0, 0.1);
@@ -253,7 +223,6 @@ main .recipeSection .recipe {
   background-color: white;
   overflow: hidden;
 }
-
 main .recipe img {
   width: 380px;
   height: 253px;
@@ -261,7 +230,6 @@ main .recipe img {
   object-fit: cover;
   margin-bottom: -20px;
 }
-
 main .recipe .recipeDuration {
   font-size: 12px;
   font-weight: 400;
@@ -276,7 +244,6 @@ main .recipe .recipeDuration {
   text-align: center;
   padding-top: 5px;
 }
-
 main .recipe .recipeName {
   font-family: var(--primary-font-family);
   font-size: 18px;
@@ -284,7 +251,6 @@ main .recipe .recipeName {
   margin-top: 0;
   padding-left: 15px;
 }
-
 main .recipeSection .recipe h3 {
   font-family: var(--secondary-font-family);
   font-size: 12px;
@@ -292,7 +258,6 @@ main .recipeSection .recipe h3 {
   color: var(--dark-grey);
   margin-bottom: 10px;
 }
-
 main .recipe .recipeDescription {
   font-family: var(--secondary-font-family);
   font-size: 14px;
@@ -306,7 +271,6 @@ main .recipe .recipeDescription {
   line-height: 1.2em;
   margin-bottom: 0px;
 }
-
 main .recipe .recipeIngredients {
   font-family: var(--secondary-font-family);
   font-size: 14px;
@@ -316,18 +280,15 @@ main .recipe .recipeIngredients {
   grid-template-columns: repeat(2, 1fr);
   gap: 20px;
 }
-
 main .recipe .recipeIngredients h3 {
   margin-bottom: -3px;
 }
-
 main .recipe .recipeIngredients .recipeIngredientsItems {
   display: flex;
   flex-direction: column;
   align-items: start;
   gap: 5px;
 }
-
 main .recipe .recipeIngredients .recipeIngredientsName {
   font-family: var(--secondary-font-family);
   font-size: 14px;
@@ -335,7 +296,6 @@ main .recipe .recipeIngredients .recipeIngredientsName {
   margin-bottom: -5px;
   margin-top: -5px;
 }
-
 main .recipe .recipeIngredients .recipeIngredientsQuantity {
   font-family: var(--secondary-font-family);
   font-size: 14px;
