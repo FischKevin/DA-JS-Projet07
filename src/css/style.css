@@ -50,7 +50,7 @@ header {
   margin-top: 35px;
 }
 
-.header--input-elements .header--input:placeholder {
+.header--input-elements .header--input::placeholder {
   padding-left: 20px;
 }
 
