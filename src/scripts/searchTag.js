@@ -16,11 +16,11 @@ export function searchByTags() {
     return recipes;
   }
 
-  // Itérer sur toutes les recettes
+  // Itereate over each recipe
   recipes.forEach((recipeData) => {
     let allTagsFound = true;
 
-    // Vérifier chaque tag sélectionné par rapport aux données de la recette courante
+    // Check each selected tag to see if it is found in the current recipe
     selectedTags.forEach((selectedTag) => {
       let tagType = selectedTag.dataset.type;
       let tagValue = selectedTag.textContent.trim().toLowerCase();
@@ -49,16 +49,16 @@ export function searchByTags() {
       }
     });
 
-    // Si tous les tags sélectionnés sont trouvés dans cette recette, ajoutez-la à la liste d'affichage
+    // If all tags are found, add the recipe to the list of recipes to display
     if (allTagsFound) {
       recipesToDisplay.push(recipeData);
     }
   });
 
-  // Mettre à jour l'état des recettes filtrées par les tags
+  // Update the filtered recipes state
   filteredRecipesState.filteredRecipesByTags = recipesToDisplay;
 
-  // Appliquer tous les autres filtres nécessaires (comme le filtre de recherche principal)
+  // Apply the filters
   applyFilters();
 
   return recipesToDisplay;

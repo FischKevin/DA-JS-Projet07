@@ -12,24 +12,24 @@ document.addEventListener('DOMContentLoaded', () => {
   const tagContainer = document.querySelector('.addedTags');
   searchInput.addEventListener('input', () => {
     currentSearchQuery = searchInput.value.trim().toLowerCase();
-    applyFilters(); // Appliquez simplement tous les filtres
+    applyFilters();
   });
 
-  // Ajoutez un écouteur pour les changements de tags
+  // Add event listener to the tag container to listen for changes
   tagContainer.addEventListener('change', () => {
-    // Mettez à jour la liste des recettes filtrées par tags
+    // Update the filtered recipes by tags
     let filteredRecipes = searchByTags();
     if (filteredRecipes) {
       filteredRecipesState.filteredRecipesByTags = filteredRecipes;
     }
 
-    // Vérifiez s'il y a une requête de recherche valide dans le champ de recherche principal
+    // Check if the search query is valid
     if (currentSearchQuery && currentSearchQuery.length >= 3) {
-      // Appliquez la recherche principale aux recettes filtrées par tags
+      // Apply the search query to the filtered recipes
       filteredRecipes = searchRecipes(currentSearchQuery, filteredRecipes);
     }
 
-    // Mettez à jour la section des recettes avec les recettes filtrées
+    // Update the recipe section with the filtered recipes
     updateRecipeSection(filteredRecipes);
   });
 });
@@ -81,7 +81,7 @@ export function searchRecipes(query, recipesToFilter = recipes) {
 export function updateRecipeSection(matchedRecipes) {
   if (!matchedRecipes) {
     console.error('matchedRecipes is undefined');
-    return; // Quitter la fonction si matchedRecipes est indéfini
+    return; // Exit the function if matchedRecipes is undefined
   }
   const recipeSection = document.querySelector('.recipeSection');
   recipeSection.textContent = '';
@@ -105,20 +105,20 @@ export function updateRecipeSection(matchedRecipes) {
   updateListOptions(matchedRecipes);
 }
 
-// Cette fonction appliquera tous les filtres (recherche principale et tags)
+// Apply the filters to the recipes
 export function applyFilters() {
   let recipesToDisplay = recipes;
 
-  // Appliquez d'abord le filtre des tags
+  // First apply the tag filter if necessary
   if (filteredRecipesState.filteredRecipesByTags.length > 0) {
     recipesToDisplay = filteredRecipesState.filteredRecipesByTags;
   }
 
-  // Ensuite, appliquez le filtre de recherche principale si nécessaire
+  // Then apply the search query filter if necessary
   if (currentSearchQuery && currentSearchQuery.length >= 3) {
     recipesToDisplay = searchRecipes(currentSearchQuery, recipesToDisplay);
   }
 
-  // Mettez à jour la section des recettes avec les recettes filtrées
+  // Update the recipe section with the filtered recipes
   updateRecipeSection(recipesToDisplay);
 }
