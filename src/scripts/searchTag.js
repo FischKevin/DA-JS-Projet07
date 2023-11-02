@@ -1,44 +1,47 @@
 import { recipes } from './recipes.js';
-import { updateRecipeSection, searchRecipes } from './searchMain.js';
-import { currentSearchQuery } from './searchMain.js';
+import { applyFilters } from './searchMain.js';
+
+export let filteredRecipesState = {
+  filteredRecipesByTags: [],
+};
 
 // Filter recipes based on selected tags
 export function searchByTags() {
   let selectedTags = document.querySelectorAll('.tag');
   let recipesToDisplay = [];
 
-  // Iterate over all recipes
+  if (selectedTags.length === 0) {
+    filteredRecipesState.filteredRecipesByTags = recipes;
+    applyFilters();
+    return recipes;
+  }
+
+  // Itérer sur toutes les recettes
   recipes.forEach((recipeData) => {
     let allTagsFound = true;
 
-    // Check each selected tag against the current recipe's data
+    // Vérifier chaque tag sélectionné par rapport aux données de la recette courante
     selectedTags.forEach((selectedTag) => {
       let tagType = selectedTag.dataset.type;
       let tagValue = selectedTag.textContent.trim().toLowerCase();
 
-      // Switch statement to handle different tag types.
       switch (tagType) {
         case 'ingredient': {
           let ingredientNames = recipeData.ingredients.map((ing) =>
             ing.ingredient.trim().toLowerCase(),
           );
-          // If this recipe doesn't contain the ingredient, mark as not all tags found.
           if (!ingredientNames.includes(tagValue)) allTagsFound = false;
           break;
         }
         case 'ustensil': {
           let isUstensilFound = recipeData.ustensils.some(
-            (ustensil) =>
-              ustensil.trim().toLowerCase() === tagValue.trim().toLowerCase(),
+            (ustensil) => ustensil.trim().toLowerCase() === tagValue,
           );
           if (!isUstensilFound) allTagsFound = false;
           break;
         }
         case 'appliance': {
-          if (
-            recipeData.appliance.trim().toLowerCase() !==
-            tagValue.trim().toLowerCase()
-          ) {
+          if (recipeData.appliance.trim().toLowerCase() !== tagValue) {
             allTagsFound = false;
           }
           break;
@@ -46,17 +49,17 @@ export function searchByTags() {
       }
     });
 
-    // If all selected tags are found in this recipe, add it to the display list
+    // Si tous les tags sélectionnés sont trouvés dans cette recette, ajoutez-la à la liste d'affichage
     if (allTagsFound) {
       recipesToDisplay.push(recipeData);
     }
   });
 
-  // If there is an active search query (at least 3 characters), filter the recipes
-  if (currentSearchQuery && currentSearchQuery.length >= 3) {
-    recipesToDisplay = searchRecipes(currentSearchQuery, recipesToDisplay);
-  }
+  // Mettre à jour l'état des recettes filtrées par les tags
+  filteredRecipesState.filteredRecipesByTags = recipesToDisplay;
 
-  // Update the UI to display the filtered recipes.
-  updateRecipeSection(recipesToDisplay);
+  // Appliquer tous les autres filtres nécessaires (comme le filtre de recherche principal)
+  applyFilters();
+
+  return recipesToDisplay;
 }

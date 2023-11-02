@@ -2,21 +2,35 @@ import { recipes } from './recipes.js';
 import { recipesFactory } from './factories/recipeFactory.js';
 import { updateRecipeCount } from './utils.js';
 import { updateListOptions } from './handleDropDown.js';
+import { filteredRecipesState } from './searchTag.js';
+import { searchByTags } from './searchTag.js';
 
 export let currentSearchQuery = '';
 
-// Handle search input
 document.addEventListener('DOMContentLoaded', () => {
   const searchInput = document.querySelector('.header--input');
-
+  const tagContainer = document.querySelector('.addedTags');
   searchInput.addEventListener('input', () => {
     currentSearchQuery = searchInput.value.trim().toLowerCase();
-    const matchedRecipes =
-      currentSearchQuery.length >= 3
-        ? // If the search query is at least 3 characters long, search the recipes, else display all recipes
-          searchRecipes(currentSearchQuery)
-        : recipes;
-    updateRecipeSection(matchedRecipes);
+    applyFilters(); // Appliquez simplement tous les filtres
+  });
+
+  // Ajoutez un écouteur pour les changements de tags
+  tagContainer.addEventListener('change', () => {
+    // Mettez à jour la liste des recettes filtrées par tags
+    let filteredRecipes = searchByTags();
+    if (filteredRecipes) {
+      filteredRecipesState.filteredRecipesByTags = filteredRecipes;
+    }
+
+    // Vérifiez s'il y a une requête de recherche valide dans le champ de recherche principal
+    if (currentSearchQuery && currentSearchQuery.length >= 3) {
+      // Appliquez la recherche principale aux recettes filtrées par tags
+      filteredRecipes = searchRecipes(currentSearchQuery, filteredRecipes);
+    }
+
+    // Mettez à jour la section des recettes avec les recettes filtrées
+    updateRecipeSection(filteredRecipes);
   });
 });
 
@@ -65,6 +79,10 @@ export function searchRecipes(query, recipesToFilter = recipes) {
 
 // Update the recipe section with the matched recipes
 export function updateRecipeSection(matchedRecipes) {
+  if (!matchedRecipes) {
+    console.error('matchedRecipes is undefined');
+    return; // Quitter la fonction si matchedRecipes est indéfini
+  }
   const recipeSection = document.querySelector('.recipeSection');
   recipeSection.textContent = '';
   // If no recipe is found, display an error message
@@ -85,4 +103,22 @@ export function updateRecipeSection(matchedRecipes) {
 
   updateRecipeCount(matchedRecipes);
   updateListOptions(matchedRecipes);
+}
+
+// Cette fonction appliquera tous les filtres (recherche principale et tags)
+export function applyFilters() {
+  let recipesToDisplay = recipes;
+
+  // Appliquez d'abord le filtre des tags
+  if (filteredRecipesState.filteredRecipesByTags.length > 0) {
+    recipesToDisplay = filteredRecipesState.filteredRecipesByTags;
+  }
+
+  // Ensuite, appliquez le filtre de recherche principale si nécessaire
+  if (currentSearchQuery && currentSearchQuery.length >= 3) {
+    recipesToDisplay = searchRecipes(currentSearchQuery, recipesToDisplay);
+  }
+
+  // Mettez à jour la section des recettes avec les recettes filtrées
+  updateRecipeSection(recipesToDisplay);
 }
