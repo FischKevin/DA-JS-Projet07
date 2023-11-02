@@ -34,7 +34,7 @@ export function getIngredientsOptions() {
       // transform each element,
       .map(capitalizeFirstLetter)
       // then sort it
-      .sort((a, b) => a.localeCompare(b, 'fr')),
+      .sort((a, b) => a.localeCompare(b, 'fr', { sensitivity: 'base' })),
   );
   // Calls the function to fill the ingredients dropdown with items from the set
   populateDropdown(
@@ -60,7 +60,7 @@ export function getAppliancesOptions() {
       // transform each element,
       .map(capitalizeFirstLetter)
       // then sort it
-      .sort((a, b) => a.localeCompare(b, 'fr')),
+      .sort((a, b) => a.localeCompare(b, 'fr', { sensitivity: 'base' })),
   );
 
   // Calls the function to fill the appliances dropdown with items from the set
@@ -89,7 +89,7 @@ export function getUstensilsOptions() {
       // transform each element,
       .map(capitalizeFirstLetter)
       // then sort it
-      .sort((a, b) => a.localeCompare(b, 'fr')),
+      .sort((a, b) => a.localeCompare(b, 'fr', { sensitivity: 'base' })),
   );
 
   // Calls the function to fill the ustensils dropdown with items from the set
