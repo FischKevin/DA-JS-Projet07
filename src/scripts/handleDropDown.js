@@ -48,7 +48,9 @@ export function updateListElement(listElement, itemsSet, itemType) {
   listElement.textContent = '';
 
   // Convert itemsSet to an array, sort it, and capitalize the first letter of each item
-  const sortedItems = Array.from(itemsSet).map(capitalizeFirstLetter).sort();
+  const sortedItems = Array.from(itemsSet)
+    .map(capitalizeFirstLetter)
+    .sort((a, b) => a.localeCompare(b, 'fr', { sensitivity: 'base' }));
 
   // Create and append list items (li elements) for each item in the sorted items list
   sortedItems.forEach((item) => {
