@@ -1,14 +1,26 @@
 import { recipes } from './recipes.js';
-import { updateRecipeSection, searchRecipes } from './searchMain.js';
-import { currentSearchQuery } from './searchMain.js';
+import { applyFilters } from './searchMain.js';
 
+export let filteredRecipesState = {
+  filteredRecipesByTags: [],
+};
+
+// Filter recipes based on selected tags
 export function searchByTags() {
   let selectedTags = document.querySelectorAll('.tag');
   let recipesToDisplay = [];
 
+  if (selectedTags.length === 0) {
+    filteredRecipesState.filteredRecipesByTags = recipes;
+    applyFilters();
+    return recipes;
+  }
+
+  // Itereate over each recipe
   recipes.forEach((recipeData) => {
     let allTagsFound = true;
 
+    // Check each selected tag to see if it is found in the current recipe
     selectedTags.forEach((selectedTag) => {
       let tagType = selectedTag.dataset.type;
       let tagValue = selectedTag.textContent.trim().toLowerCase();
@@ -23,17 +35,13 @@ export function searchByTags() {
         }
         case 'ustensil': {
           let isUstensilFound = recipeData.ustensils.some(
-            (ustensil) =>
-              ustensil.trim().toLowerCase() === tagValue.trim().toLowerCase(),
+            (ustensil) => ustensil.trim().toLowerCase() === tagValue,
           );
           if (!isUstensilFound) allTagsFound = false;
           break;
         }
         case 'appliance': {
-          if (
-            recipeData.appliance.trim().toLowerCase() !==
-            tagValue.trim().toLowerCase()
-          ) {
+          if (recipeData.appliance.trim().toLowerCase() !== tagValue) {
             allTagsFound = false;
           }
           break;
@@ -41,15 +49,17 @@ export function searchByTags() {
       }
     });
 
+    // If all tags are found, add the recipe to the list of recipes to display
     if (allTagsFound) {
       recipesToDisplay.push(recipeData);
     }
   });
 
-  // Filtrer avec la requête de recherche si existante
-  if (currentSearchQuery && currentSearchQuery.length >= 3) {
-    recipesToDisplay = searchRecipes(currentSearchQuery, recipesToDisplay);
-  }
+  // Update the filtered recipes state
+  filteredRecipesState.filteredRecipesByTags = recipesToDisplay;
 
-  updateRecipeSection(recipesToDisplay);
+  // Apply the filters
+  applyFilters();
+
+  return recipesToDisplay;
 }
