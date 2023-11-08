@@ -10,15 +10,23 @@
 }
 
 body {
-  width: 1440px;
+  max-width: 1440px;
   margin: 0 auto;
   font-family: Anton, Arial, Sans-serif;
 }
 
 header {
   background: url('../../assets/site/lampos-aritonang-24gR_9lCdes-unsplash1.png');
-  width: 100%;
-  height: 667px;
+  height: 56vw;
+  background-size: cover;
+  max-height: 667px;
+  min-height: 380px;
+}
+
+@media (max-width: 768px) {
+  header {
+    height: 36vw;
+  }
 }
 
 .header--logo {
@@ -28,36 +36,72 @@ header {
   margin-left: 70px;
 }
 
+@media (max-width: 768px) {
+  .header--logo {
+    margin-top: 20px;
+    margin-left: 20px;
+  }
+}
+
 .header--text {
   font-family: var(--primary-font-family);
   font-size: 2.5rem;
   color: var(--primary-color);
   text-align: center;
   margin: 0 auto;
-  width: 45%;
+  width: 69%;
   margin-top: 12%;
 }
 
+@media (max-width: 925px) {
+  .header--text {
+    width: 95%;
+  }
+}
+
+@media (max-width: 768px) {
+  .header--text {
+    margin-top: 5%;
+    font-size: 2rem;
+  }
+}
+
+.header--input-elements {
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding: 0 20px;
+  width: calc(100% - 40px);
+  max-width: 994px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+}
+
 .header--input-elements .header--input {
-  width: 954px;
+  width: 100%;
   height: 72px;
   border-radius: 11px;
   border: none;
   font-family: var(--secondary-font-family);
   font-size: 22px;
-  margin: 0 calc(50% - (954px / 2));
   padding-left: 20px;
-  margin-top: 35px;
+}
+
+@media (max-width: 540px) {
+  .header--input-elements .header--input {
+    padding-right: 50px;
+  }
 }
 
 .header--input-elements .header--input::placeholder {
   padding-left: 20px;
+  padding-right: 50px;
 }
 
 .header--input-elements .fa-stack {
-  position: relative;
-  bottom: 69px;
-  left: 79%;
+  position: absolute;
+  right: 20px;
 }
 
 .header--input-elements .fa-square {
@@ -70,7 +114,7 @@ header {
 
 main {
   background: var(--tertiary-color);
-  width: 100%;
+  max-width: 1440px;
   height: 100%;
   padding-bottom: 140px;
 }
@@ -78,16 +122,53 @@ main {
 main .listBoxesAndRecipesNumber {
   display: flex;
   justify-content: space-between;
-  margin-left: 70px;
-  margin-right: 70px;
+  margin-left: 5vw;
+  margin-right: 5vw;
   gap: 20px;
   position: absolute;
+}
+
+@media (max-width: 1024px) {
+  main .listBoxesAndRecipesNumber {
+    flex-direction: column-reverse;
+  }
 }
 
 main .listBoxesAndRecipesNumber .listBoxes {
   display: flex;
   padding: 20px 5px;
   gap: 55px;
+}
+
+@media (max-width: 830px) {
+  main .listBoxesAndRecipesNumber .listBoxes {
+    gap: 7vw;
+  }
+}
+
+@media (max-width: 770px) {
+  main .listBoxesAndRecipesNumber .listBoxes {
+    gap: 5vw;
+  }
+}
+
+@media (max-width: 720px) {
+  main .listBoxesAndRecipesNumber .listBoxes {
+    gap: 3vw;
+  }
+}
+
+@media (max-width: 680px) {
+  main .listBoxesAndRecipesNumber .listBoxes {
+    gap: 1vw;
+  }
+}
+
+@media (max-width: 630px) {
+  main .listBoxesAndRecipesNumber .listBoxes {
+    margin-top: 10px;
+    flex-direction: column;
+  }
 }
 
 main .listBoxesAndRecipesNumber .dropdown {
@@ -99,6 +180,24 @@ main .listBoxesAndRecipesNumber .dropdown {
   margin: 20px 30px 20px 0px;
   font-family: var(--secondary-font-family);
   height: fit-content;
+}
+
+@media (max-width: 1024px) {
+  main .listBoxesAndRecipesNumber .dropdown {
+    bottom: 40px;
+  }
+}
+
+@media (max-width: 830px) {
+  main .listBoxesAndRecipesNumber .dropdown {
+    margin: 20px 0px 20px 0px;
+  }
+}
+
+@media (max-width: 630px) {
+  main .listBoxesAndRecipesNumber .dropdown {
+    margin: 0px 0px;
+  }
 }
 
 main .listBoxesAndRecipesNumber .dropdownTitle {
@@ -170,6 +269,24 @@ main .listBoxesAndRecipesNumber .dropdownContent ul {
   border-radius: 0 10px 10px 10px;
 }
 
+@media (max-width: 1350px) {
+  main .listBoxesAndRecipesNumber .dropdownContent ul {
+    width: 511px;
+  }
+}
+
+@media (max-width: 1130px) {
+  main .listBoxesAndRecipesNumber .dropdownContent ul {
+    width: 256px;
+  }
+}
+
+@media (max-width: 870px) {
+  main .listBoxesAndRecipesNumber .dropdownContent ul {
+    width: 100%;
+  }
+}
+
 main .listBoxesAndRecipesNumber .dropdownContent li {
   padding: 8px 16px;
   cursor: pointer;
@@ -181,6 +298,24 @@ main .listBoxesAndRecipesNumber .dropdownContent li {
   box-sizing: border-box;
 }
 
+@media (max-width: 1350px) {
+  main .listBoxesAndRecipesNumber .dropdownContent li {
+    width: 33%;
+  }
+}
+
+@media (max-width: 1130px) {
+  main .listBoxesAndRecipesNumber .dropdownContent li {
+    width: 50%;
+  }
+}
+
+@media (max-width: 870px) {
+  main .listBoxesAndRecipesNumber .dropdownContent li {
+    width: 100%;
+  }
+}
+
 main .listBoxesAndRecipesNumber .dropdownContent li:hover {
   background-color: var(--primary-color);
 }
@@ -189,8 +324,14 @@ main .recipesNumber {
   font-size: 21px;
   font-weight: 400;
   margin-top: 45px;
-  left: 390px;
   position: relative;
+}
+
+@media (max-width: 1024px) {
+  main .recipesNumber {
+    padding: 0px;
+    margin: 20px 0 0 0;
+  }
 }
 
 main .addedTags {
@@ -202,6 +343,20 @@ main .addedTags {
   top: 115px;
   gap: 25px;
   padding-left: 5px;
+}
+
+@media (max-width: 1024px) {
+  main .addedTags {
+    top: 145px;
+    padding-left: 0px;
+    margin-left: 45px;
+  }
+}
+
+@media (max-width: 630px) {
+  main .addedTags {
+    top: 260px;
+  }
 }
 
 main .addedTags .tag {
@@ -223,17 +378,28 @@ main .addedTags .tag:after {
 main .recipeSection {
   margin-left: auto;
   margin-right: auto;
-  width: 90%;
+  width: 93%;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  column-gap: 70px;
-  row-gap: 10px;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  column-gap: 80px;
   padding-bottom: 60px;
   justify-items: center;
   align-items: center;
-  top: 140px;
   position: relative;
   row-gap: 50px;
+  top: 150px;
+}
+
+@media (max-width: 1024px) {
+  main .recipeSection {
+    top: 180px;
+  }
+}
+
+@media (max-width: 630px) {
+  main .recipeSection {
+    top: 270px;
+  }
 }
 
 main .recipeSection .errorMessage {
@@ -244,6 +410,18 @@ main .recipeSection .errorMessage {
   text-align: center;
 }
 
+@media (max-width: 960px) {
+  main .recipeSection .errorMessage {
+    width: 90%;
+  }
+}
+
+@media (max-width: 630px) {
+  main .recipeSection .errorMessage {
+    margin-bottom: 100px;
+  }
+}
+
 main .recipeSection .recipe {
   border-radius: 5px;
   box-shadow: 1px 1px 1px 0px rgba(0, 0, 0, 0.1);
@@ -252,6 +430,18 @@ main .recipeSection .recipe {
   width: 380px;
   background-color: white;
   overflow: hidden;
+}
+
+@media (min-width: 320px) and (max-width: 379px) {
+  main .recipeSection .recipe {
+    width: 100vw;
+  }
+}
+
+@media (min-width: 380px) {
+  main .recipeSection .recipe {
+    width: 380px;
+  }
 }
 
 main .recipe img {
@@ -275,6 +465,12 @@ main .recipe .recipeDuration {
   display: block;
   text-align: center;
   padding-top: 5px;
+}
+
+@media (min-width: 320px) and (max-width: 379px) {
+  main .recipe .recipeDuration {
+    left: 77%;
+  }
 }
 
 main .recipe .recipeName {
